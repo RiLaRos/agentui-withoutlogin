@@ -1,16 +1,13 @@
 import './globals.css';
 import type { ReactNode } from 'react';
 
-export const metadata = { title: 'MiTiendaIA' };
+export const metadata = { title: 'Agente IA' };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es">
-      <body className="flex h-screen bg-gray-50">
-        <aside className="w-64 bg-neutral-900 text-white p-4 text-xl font-semibold">
-          MiTiendaIA
-        </aside>
-        <main className="flex-1 overflow-auto bg-gray-100 p-6">
+      <body className="min-h-screen bg-gray-50">
+        <main className="w-full min-h-screen bg-gray-100 p-6 flex items-center justify-center">
           {children}
         </main>
       </body>
