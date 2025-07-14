@@ -1,8 +1,9 @@
 import type { NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  const url = 'https://apicloudia-659864514180.us-west4.run.app/agent?' +
-              new URL(request.url).searchParams.toString();
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (!baseUrl) throw new Error('NEXT_PUBLIC_API_URL no está definida');
+  const url = `${baseUrl}/agent?${new URL(request.url).searchParams.toString()}`;
   const res = await fetch(url);
   const text = await res.text();
   return new Response(text, {
